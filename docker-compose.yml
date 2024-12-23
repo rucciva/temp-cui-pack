@@ -2,10 +2,6 @@ services:
   comfyui:
     build: .
     environment:
-      # CUSTOM_NODE_URL: https://storage.googleapis.com/comfy-registry/zer0gear/zer0gear-comfy-utilities/3.2.2/node.tar.gz
-      # CUSTOM_NODE_NAME: zer0ComfyUtilities
-      # CUSTOM_NODE_URL: https://storage.googleapis.com/comfy-registry/christian-byrne/youtube-dl-comfyui/1.0.0/node.tar.gz
-      # CUSTOM_NODE_NAME: youtube-dl-comfyui
       CUSTOM_NODE_URL: https://storage.googleapis.com/comfy-registry/altkeyproject/comfyui-dream-project/1.0.6/node.tar.gz
       CUSTOM_NODE_NAME: comfyui-dream-project
     volumes:
