@@ -14,11 +14,21 @@ steps:
       - "--env"
       - "CUSTOM_NODE_NAME=$_CUSTOM_NODE_NAME"
       - "--volume"
-      - "./output:/tmp/output"
+      - "/workspace:/workspace"
       - "--workdir"
-      - "/tmp/output"
+      - "/workspace"
       - "gcr.io/$PROJECT_ID/comfyui-nodepack"
-      - "comfyui-dream-project.json"
+      - "$_CUSTOM_NODE_NAME.json"
+  
+  - name: "curlimages/curl"
+    args:
+      - "-X"
+      - "POST"
+      - "-H"
+      - "Content-Type: application/json"
+      - "-d"
+      - "@/workspace/$_CUSTOM_NODE_NAME.json"
+      - "$_NODEPACK_HANDLER"
 
 images:
   - "gcr.io/$PROJECT_ID/comfyui-nodepack"
@@ -26,6 +36,7 @@ images:
 substitutions:
   _CUSTOM_NODE_NAME: "default-node-name"
   _CUSTOM_NODE_URL: "https://example.com/default-node.tar.gz"
+  _NODEPACK_HANDLER: "https://ntfy.sh/comfyui-nodepack-handler"
 
 options:
   logging: CLOUD_LOGGING_ONLY
