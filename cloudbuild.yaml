@@ -17,7 +17,7 @@ steps:
       - "./output:/tmp/output"
       - "--workdir"
       - "/tmp/output"
-      - "gcr.io/$PROJECT_ID/comfyui"
+      - "gcr.io/$PROJECT_ID/comfyui-nodepack"
       - "comfyui-dream-project.json"
 
 images:
