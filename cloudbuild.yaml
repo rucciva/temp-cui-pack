@@ -30,9 +30,6 @@ steps:
       - "@/workspace/$_CUSTOM_NODE_NAME.json"
       - "$_NODEPACK_HANDLER"
 
-images:
-  - "gcr.io/$PROJECT_ID/comfyui-nodepack"
-
 substitutions:
   _CUSTOM_NODE_NAME: "default-node-name"
   _CUSTOM_NODE_URL: "https://example.com/default-node.tar.gz"
